@@ -7,6 +7,7 @@ from datetime import datetime
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
+from sqlalchemy import text
 
 from app.config import settings
 from app.database import engine, get_db
@@ -59,7 +60,7 @@ async def get_status(db: Session = Depends(get_db)) -> StatusResponse:
     # Check database connection
     db_connected = True
     try:
-        db.execute("SELECT 1")
+        db.execute(text("SELECT 1"))
     except Exception as e:
         logger.error(f"Database connection failed: {e}")
         db_connected = False
@@ -89,8 +90,12 @@ async def get_status(db: Session = Depends(get_db)) -> StatusResponse:
     )
 
 
-# Include API routes (to be implemented)
-# from app.api.routes import emails, data, llm, tasks
+# Include API routes
+from app.api.routes import emails, data, tasks
+
+app.include_router(emails.router)
+app.include_router(data.router)
+app.include_router(tasks.router)
 
 
 @app.on_event("startup")
