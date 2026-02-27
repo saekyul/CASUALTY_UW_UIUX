@@ -3,11 +3,11 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { fetchStatus } from './services/api';
 import './App.css';
 
-// Pages (to be implemented)
-const HomePage = () => <div className="p-8"><h1>Home Page</h1></div>;
-const EmailsPage = () => <div className="p-8"><h1>Emails</h1></div>;
-const DataPage = () => <div className="p-8"><h1>Data Explorer</h1></div>;
-const SettingsPage = () => <div className="p-8"><h1>Settings</h1></div>;
+// Pages
+import Home from './pages/Home';
+import Emails from './pages/Emails';
+import Data from './pages/Data';
+import Settings from './pages/Settings';
 
 function App() {
   const [isConnected, setIsConnected] = useState(false);
@@ -65,10 +65,10 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/emails" element={<EmailsPage />} />
-          <Route path="/data" element={<DataPage />} />
-          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/emails" element={<Emails />} />
+          <Route path="/data" element={<Data />} />
+          <Route path="/settings" element={<Settings />} />
         </Routes>
       </div>
     </Router>
