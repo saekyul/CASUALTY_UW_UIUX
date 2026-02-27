@@ -27,7 +27,7 @@ requests==2.31.0
 # Authentication & Security
 python-jose[cryptography]==3.3.0
 passlib[bcrypt]==1.7.4
-PyJWT==2.8.1
+PyJWT==2.11.0
 
 # Utilities
 python-multipart==0.0.6

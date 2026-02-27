@@ -1,8 +1,13 @@
 """
 FastAPI Main Application
 """
+import sys
+import os
 import logging
 from datetime import datetime
+
+# Add the parent directory to the path for proper module imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from fastapi import FastAPI, Depends
 from fastapi.middleware.cors import CORSMiddleware
