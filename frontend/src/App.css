@@ -1,0 +1,13 @@
+.App {
+  min-height: 100vh;
+  background-color: #f9fafb;
+}
+
+.App a {
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.App a:hover {
+  color: #1f2937;
+}
